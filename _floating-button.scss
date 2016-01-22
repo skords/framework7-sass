@@ -1,0 +1,153 @@
+/* === Floating Action Button === */
+.floating-button {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    z-index: 1500;
+    @include depth(3);
+    background-color: $themeColor;
+    color:#fff;
+    overflow: hidden;
+    @include transition(300ms);
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    html:not(.watch-active-state) &:active, &.active-state {
+        background: darken($themeColor, 8%);
+    }
+}
+.floating-button-toolbar, .speed-dial {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1500;
+    .floating-button {
+        right: 0;
+        bottom: 0;
+        position: relative;
+    }
+}
+// Speed Dial
+.speed-dial {
+    .floating-button {
+        i {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate3d(-50%, -50%, 0) rotate(0deg) scale(1));
+            @include transition(300ms);
+        }
+        i + i {
+            @include transform(translate3d(-50%, -50%, 0) rotate(-90deg) scale(0.5));
+            opacity: 0;
+        }
+    }
+    &.speed-dial-opened {
+        .floating-button {
+            i {
+                @include transform(translate3d(-50%, -50%, 0) rotate(90deg) scale(0.5));
+                opacity: 0;
+            }
+            i + i {
+                @include transform(translate3d(-50%, -50%, 0) rotate(0deg) scale(1));
+                opacity: 1;
+            }
+        }
+    }
+}
+.speed-dial-buttons {
+    position: absolute;
+    width: 40px;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 100%;
+    margin-bottom: 16px;
+    @include flexbox();
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    visibility: hidden;
+    pointer-events: none;
+    a {
+        width: 40px;
+        height: 40px;
+        opacity: 0;
+        color: #fff;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        background-color: $themeColor;
+        html:not(.watch-active-state) &:active, &.active-state {
+            background: darken($themeColor, 8%);
+        }
+        @include transition(300ms);
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        @include transform(translate3d(0, 8px, 0) scale(0.3));
+        @include transform-origin(center bottom);
+        + a {
+            margin-bottom: 16px;
+        }
+    }
+    .speed-dial-opened & {
+        visibility: visible;
+        pointer-events: auto;
+        a {
+            opacity: 1;
+            @include transform(translate3d(0, 0, 0) scaleY(1));
+            @include depth(3);
+            &:nth-child(2) {
+                @include delay(50ms);
+            }
+            &:nth-child(3) {
+                @include delay(100ms);
+            }
+            &:nth-child(4) {
+                @include delay(150ms);
+            }
+            &:nth-child(5) {
+                @include delay(200ms);
+            }
+            &:nth-child(6) {
+                @include delay(250ms);
+            }
+        }
+    }
+}
+
+// Popove Morph
+.floating-button-to-popover {
+    &.floating-button-to-popover {
+        @include transition(300ms);
+    }
+    &.floating-button-to-popover-in {
+        @include transition(100ms);
+        i {
+            opacity: 0;
+            @include transition(100ms);
+        }
+    }
+    &.floating-button-to-popover-scale {
+        border-radius: 0;
+        @include transition(300ms);
+        box-shadow: none;
+    }
+    &.floating-button-to-popover-out {
+        @include delay(0ms);
+        @include transition(300ms);
+        i {
+            opacity: 1;
+            @include transition(100ms);
+            @include delay(200ms);
+        }
+    }
+}

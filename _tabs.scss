@@ -1,0 +1,31 @@
+/* === Tabs === */
+.tabs {
+    .tab {
+        display: none;
+    }
+    .tab.active {
+        display: block;
+    }
+}
+.tabs-animated-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    >.tabs {
+        @include flexbox();
+        height: 100%;
+        @include transition(300ms);
+        >.tab {
+            width: 100%;
+            display: block;
+            @include flex-shrink(0);
+        }
+    }
+}
+.tabs-swipeable-wrap {
+    height: 100%;
+    > .tabs > .tab {
+        display: block;
+    }
+}

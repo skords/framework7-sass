@@ -1,0 +1,87 @@
+/* === Grid === */
+.row {
+    @include flexbox();
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+    @include align-items(flex-start);
+    > [class*="col-"] {
+        box-sizing: border-box;
+    }
+}
+$cols: 5, 10, 15, 20, 25, 100/3, 40, 50, 60, 100*(2/3), 75, 80, 85, 90, 95, 100;
+$cols-length: length($cols);
+.row {
+    .col-auto {
+        width: 100%;
+    }
+    @each $i in $cols {
+        $className: floor($i);
+        $n: 100/$i;
+        $n-1: $n - 1;
+        $i-perc: percentage($i) / 100;
+        .col-#{$className} {
+            width: #{$i-perc};
+            width: -webkit-calc((100% - 16px*#{$n-1}) / #{$n});
+            width: calc((100% - 16px*#{$n-1}) / #{$n});
+        }
+        &.no-gutter {
+            .col-#{$className} {
+                width: #{$i-perc};
+            }
+        }
+    }
+    @for $j from 1 through $cols-length {
+        $className: floor($j);
+        .col-auto:nth-last-child(#{$className}),
+        .col-auto:nth-last-child(#{$className}) ~ .col-auto {
+            $j-1: $j - 1;  
+            width: 100% / $j;
+            width: -webkit-calc((100% - 16px*#{$j-1}) / #{$j});   
+            width: calc((100% - 16px*#{$j-1}) / #{$j});   
+        }
+        &.no-gutter {
+            .col-auto:nth-last-child(#{$className}),
+            .col-auto:nth-last-child(#{$className}) ~ .col-auto {
+                width: 100% / $j;
+            }
+        }
+    }
+}
+@media all and (min-width:768px) {
+    .row {
+        @each $i in $cols {
+            $className: floor($i);
+            $n: 100 / $i;
+            $n-1: $n - 1;
+            $i-perc: percentage($i) / 100;
+            .tablet-#{$className} {
+                width: #{$i-perc};
+                width: -webkit-calc((100% - 16px*#{$n-1}) / #{$n});   
+                width: calc((100% - 16px*#{$n-1}) / #{$n});   
+            }
+            &.no-gutter {
+                .tablet-#{$className} {
+                    width: #{$i-perc};
+                }
+                .tablet-auto:nth-last-child(#{$className}), .tablet-auto:nth-last-child(#{$className}) ~ .tablet-auto {
+                    width: 100% / $i;
+                }
+            }
+        }
+        @for $j from 1 through $cols-length {
+            $className: floor($j);
+            .tablet-auto:nth-last-child(#{$className}) ~ .col-auto {
+                $j-1: $j - 1;  
+                width: 100% / $j;
+                width: -webkit-calc((100% - 16px*#{$j-1}) / #{$j});   
+                width: calc((100% - 16px*#{$j-1}) / #{$j});   
+            }
+            &.no-gutter {
+                .tablet-auto:nth-last-child(#{$className}), .tablet-auto:nth-last-child(#{$className}) ~ .tablet-auto {
+                    width: 100% / $j;
+                }
+            }
+        }
+    }
+
+}
