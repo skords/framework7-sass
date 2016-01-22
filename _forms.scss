@@ -178,7 +178,7 @@ textarea.resizable {
 }
 
 //Buttons
-.button {
+@mixin button {
     color:$themeColor;
     text-decoration: none;
     text-align: center;
@@ -208,7 +208,7 @@ textarea.resizable {
     border: none;
     @include transition(300ms);
     @include translate3d(0,0,0);
-    & input[type="submit"], & input[type="button"]{
+    input[type="submit"] &, input[type="button"] &{
         width: 100%;
     }
     html:not(.watch-active-state) &:active, &.active-state {
@@ -242,6 +242,9 @@ textarea.resizable {
             }
         }
     }
+}
+.button {
+    @include button;
 }
 .button-raised {
     @include depth(1);

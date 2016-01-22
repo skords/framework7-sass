@@ -1,0 +1,259 @@
+@import "_mixins.scss";
+@import "_colors-vars.scss";
+/*=============
+  Framework 7 RTL Additions
+=============*/
+html {
+    direction: rtl;
+}
+
+/* === Lists === */
+.list-block {
+    ul ul {
+        padding-left: 0;
+        padding-right: 56px;
+    }
+    .item-content {
+        padding-left: 0;
+        padding-right: 16px;
+    }
+    .item-inner {
+        padding-right: 0;
+        padding-left: 16px;
+    }
+    .item-after {
+        margin-left: 0;
+        margin-right: 8px;
+    }
+    .item-media {
+        i + i, i + img {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+        & + .item-inner {
+            margin-left: 0;
+            margin-right: 16px;    
+        }
+    }
+    .item-link {
+        .item-inner {
+            padding-right: 0;
+            padding-left: 42px;
+            background-position: 16px center;
+            @include encoded-svg-background("<svg viewBox='0 0 60 120' xmlns='http://www.w3.org/2000/svg'><path d='m60 61.5-38.25 38.25-9.75-9.75 29.25-28.5-29.25-28.5 9.75-9.75z' fill='#c7c7cc' transform='translate(60,120) rotate(180)'/></svg>");
+        }
+    }
+
+    &.media-list, li.media-item {
+        .item-link {
+            .item-inner {
+                padding-right: 0;
+                padding-left: 16px;
+            }
+            .item-title-row {
+                padding-right: 0;
+                padding-left: 26px;
+                background-position: center left;
+                @include encoded-svg-background("<svg viewBox='0 0 60 120' xmlns='http://www.w3.org/2000/svg'><path d='m60 61.5-38.25 38.25-9.75-9.75 29.25-28.5-29.25-28.5 9.75-9.75z' fill='#c7c7cc' transform='translate(60,120) rotate(180)'/></svg>");
+            }
+        }
+    }
+    .sortable-handler {
+        right: auto;
+        left: 0;
+    }
+    &.sortable-opened {
+        .item-inner, .item-link .item-inner {
+            padding-right: 0;
+            padding-left: 50px;
+        }
+        .item-link .item-inner, .item-link .item-title-row {
+            background-image: none;
+        }
+    }
+    .swipeout-actions-left, .swipeout-actions-right {
+        direction: ltr;
+    }
+}
+
+/* === Toolbars === */
+.navbar, .toolbar {
+    a.link {
+        i+span, i+i, span+i, span+span {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+    }
+
+}
+.navbar {
+    .right {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+.tabbar .tab-link-highlight {
+    left: auto;
+    right: 0;
+}
+/* === Forms === */
+.list-block {
+    input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="time"], input[type="number"], select, textarea {
+        text-align: right;
+    }
+}
+.buttons-row {
+    .button {
+        margin-left: 0;
+        margin-right: 8px;
+        &:first-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.label-switch {
+    .checkbox {
+        &:after {
+            left: auto;
+            right: 0;
+        }
+    }
+    input[type="checkbox"]:checked + .checkbox:after {
+        @include transform(translateX(-16px));
+    }
+}
+.range-slider {
+    input[type="range"]::-webkit-slider-thumb:before {
+        right: auto;
+        left: 100%;        
+    }
+}
+
+label.label-checkbox, label.label-radio {
+    .item-after {
+        i.icon-form-checkbox, i.icon-form-radio {
+            margin-left: 16px;
+            margin-right: 8px;
+        }
+    }
+}
+/* === Search Bar === */
+.searchbar {
+    input[type="search"] {
+        background-position: right center;
+        padding: 0 24px 0 36px
+    }
+    .searchbar-clear {
+        right: auto;
+        left: -16px;
+    }
+}
+/* === Modals === */
+.modal-button {
+    + .modal-button {
+        margin-left: 0;
+        margin-right: 4px;
+    }
+}
+
+/* === Content Block === */
+.content-block-inner {
+    margin-left: 0;
+    margin-right: -16px;
+}
+
+/* === Messages === */
+.message-received {
+    -ms-flex-item-align: end;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+    @include align-items(flex-end);
+}
+.message-sent {
+    -ms-flex-item-align: start;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    @include align-items(flex-start);
+}
+/* === Accordion === */
+.list-block {
+    .accordion-toggle {
+        .item-inner {
+            padding-right: 0;
+            padding-left: 42px;
+            background-position: 16px center;
+            @include encoded-svg-background("<svg viewBox='0 0 60 120' xmlns='http://www.w3.org/2000/svg'><path d='m60 61.5-38.25 38.25-9.75-9.75 29.25-28.5-29.25-28.5 9.75-9.75z' fill='#c7c7cc' transform='translate(60,120) rotate(180)'/></svg>");
+        }
+    }
+    &:not(.media-list) .accordion-item-expanded:not(.media-item) .accordion-item-toggle .item-inner, 
+    &:not(.media-list) .accordion-item-expanded:not(.media-item) > .item-link .item-inner,
+    &.media-list .accordion-item-expanded .accordion-item-toggle .item-title-row,
+    &.media-list .accordion-item-expanded > .item-link .item-title-row,
+    .accordion-item-expanded.media-item .accordion-item-toggle .item-title-row,
+    .accordion-item-expanded.media-item > .item-link .item-title-row,
+    {
+        @include encoded-svg-background("<svg viewBox='0 0 60 120' xmlns='http://www.w3.org/2000/svg'><path d='m60 61.5-38.25 38.25-9.75-9.75 29.25-28.5-29.25-28.5 9.75-9.75z' transform='translate(70, 30) rotate(90)' fill='#c7c7cc'/></svg>");
+        background-size: 20px 20px;
+    }
+    .accordion-item ul {
+        padding-right: 0;
+    }
+}
+/* === Icons === */
+.contacts-block {
+    li:not(.list-group-title) {
+        padding-left: 0;
+        padding-right: 40px + 16px;
+    }
+}
+/* === Icons === */
+i.icon {
+    &.icon-back {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z' fill='#ffffff'/></svg>");
+    }
+    &.icon-forward {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z' fill='#ffffff'/></svg>");
+    }
+    &.icon-next {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' fill='#ffffff' width='24' height='24' viewBox='0 0 24 24'><path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
+    &.icon-prev {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' fill='#ffffff' width='24' height='24' viewBox='0 0 24 24'><path d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
+}
+@mixin rtl-icon-color-mixin($colorName, $color) {
+    i.icon-back.color-#{$colorName}, i.icon-back.theme-#{$colorName} {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z' fill='#{$color}'/></svg>");
+    }
+    i.icon-forward.color-#{$colorName}, i.icon-forward.theme-#{$colorName} {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z' fill='#{$color}'/></svg>");
+    }
+    i.icon-next.color-#{$colorName}, i.icon-next.theme-#{$colorName} {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' fill='#{$color}' width='24' height='24' viewBox='0 0 24 24'><path d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
+    i.icon-prev.color-#{$colorName}, i.icon-prev.theme-#{$colorName} {
+        @include encoded-svg-background("<svg xmlns='http://www.w3.org/2000/svg' fill='#{$color}' width='24' height='24' viewBox='0 0 24 24'><path d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
+}
+@include rtl-icon-color-mixin(('red'), $red);
+@include rtl-icon-color-mixin(('pink'), $pink);
+@include rtl-icon-color-mixin(('purple'), $purple);
+@include rtl-icon-color-mixin(('deeppurple'), $deeppurple);
+@include rtl-icon-color-mixin(('indigo'), $indigo);
+@include rtl-icon-color-mixin(('blue'), $blue);
+@include rtl-icon-color-mixin(('lightblue'), $lightblue);
+@include rtl-icon-color-mixin(('cyan'), $cyan);
+@include rtl-icon-color-mixin(('teal'), $teal);
+@include rtl-icon-color-mixin(('green'), $green);
+@include rtl-icon-color-mixin(('lightgreen'), $lightgreen);
+@include rtl-icon-color-mixin(('lime'), $lime);
+@include rtl-icon-color-mixin(('yellow'), $yellow);
+@include rtl-icon-color-mixin(('amber'), $amber);
+@include rtl-icon-color-mixin(('orange'), $orange);
+@include rtl-icon-color-mixin(('deeporange'), $deeporange);
+@include rtl-icon-color-mixin(('brown'), $brown);
+@include rtl-icon-color-mixin(('gray'), $gray);
+@include rtl-icon-color-mixin(('bluegray'), $bluegray);
+@include rtl-icon-color-mixin(('white'), $white);
+@include rtl-icon-color-mixin(('black'), $black);
