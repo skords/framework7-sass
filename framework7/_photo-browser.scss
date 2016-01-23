@@ -19,8 +19,8 @@
             @include animation(photoBrowserOut 400ms forwards);
         }
         html.with-statusbar-overlay & {
-            height: "-webkit-calc(100% - 20px)";
-            height: "calc(100% - 20px)";
+            height: -webkit-calc(100% - 20px);
+            height: calc(100% - 20px);
             top: 20px;
         }
     }

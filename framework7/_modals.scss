@@ -427,8 +427,8 @@ html.with-statusbar-overlay {
     // iPhone with statusbar overlay
     @media all and (max-width:629px), (max-height:629px) {
         .popup {
-            height: "-webkit-calc(100% - 20px)";
-            height: "calc(100% - 20px)";
+            height: -webkit-calc(100% - 20px);
+            height: calc(100% - 20px);
             top: 20px;
         }
         .popup-overlay {
@@ -436,8 +436,8 @@ html.with-statusbar-overlay {
         }
     }
     .login-screen, .popup.tablet-fullscreen {
-        height: "-webkit-calc(100% - 20px)";
-        height: "calc(100% - 20px)";
+        height: -webkit-calc(100% - 20px);
+        height: calc(100% - 20px);
         top: 20px;
     }
 }
@@ -502,9 +502,9 @@ html.with-statusbar-overlay {
         width: 100%;
         top: 0;
         + .picker-modal-inner {
-            height: "-webkit-calc(100% - #{$toolbarSize})";
-            height: "-moz-calc(100% - #{$toolbarSize})";
-            height: "calc(100% - #{$toolbarSize})";    
+            height: -webkit-calc(100% - #{$toolbarSize});
+            height: -moz-calc(100% - #{$toolbarSize});
+            height: calc(100% - #{$toolbarSize});   
         }
         a.link {
             @include flex-shrink(0);
@@ -519,9 +519,9 @@ html.with-statusbar-overlay {
             overflow: visible;
         }
         + .picker-footer + .toolbar + .picker-modal-inner {
-            height: "-webkit-calc(100% - #{$toolbarSize} * 3)";
-            height: "-moz-calc(100% - #{$toolbarSize} * 3)";
-            height: "calc(100% - #{$toolbarSize} * 3)";
+            height: -webkit-calc(100% - #{$toolbarSize} * 3);
+            height: -moz-calc(100% - #{$toolbarSize} * 3);
+            height: calc(100% - #{$toolbarSize} * 3);
         }
     }
     .picker-footer {
@@ -534,14 +534,14 @@ html.with-statusbar-overlay {
     }
     .picker-header, .picker-footer {
         + .picker-modal-inner {
-            height: "-webkit-calc(100% - #{$toolbarSize})";
-            height: "-moz-calc(100% - #{$toolbarSize})";
-            height: "calc(100% - #{$toolbarSize})";    
+            height: -webkit-calc(100% - #{$toolbarSize});
+            height: -moz-calc(100% - #{$toolbarSize});
+            height: calc(100% - #{$toolbarSize});   
         }
         + .toolbar + .picker-modal-inner {
-            height: "-webkit-calc(100% - #{$toolbarSize} * 2)";
-            height: "-moz-calc(100% - #{$toolbarSize} * 2)";
-            height: "calc(100% - #{$toolbarSize} * 2)";
+            height: -webkit-calc(100% - #{$toolbarSize} * 2);
+            height: -moz-calc(100% - #{$toolbarSize} * 2);
+            height: calc(100% - #{$toolbarSize} * 2);
         }
     }
     &.picker-modal-inline, .popover & {

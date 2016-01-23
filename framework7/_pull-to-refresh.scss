@@ -36,9 +36,9 @@
 .pull-to-refresh-content {
     &.pull-to-refresh-no-navbar {
         margin-top: -$toolbarSize;
-        height: "-webkit-calc(100% + #{$toolbarSize})";
-        height: "-moz-calc(100% + #{$toolbarSize})";
-        height: "calc(100% + #{$toolbarSize})";
+        height: -webkit-calc(100% + #{$toolbarSize});
+        height: -moz-calc(100% + #{$toolbarSize});
+        height: calc(100% + #{$toolbarSize});
         .pull-to-refresh-layer {
             margin-top: 0;
         }

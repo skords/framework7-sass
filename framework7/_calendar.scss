@@ -13,8 +13,8 @@
     @include depth(5);
     @media (orientation: landscape) and (max-height: 460px) {
         &:not(.picker-modal-inline) {
-            height: "-webkit-calc(100% - 40px)";
-            height: "calc(100% - 40px)";
+            height: -webkit-calc(100% - 40px);
+            height: calc(100% - 40px);
         }
     }
     .popover-picker-calendar & {
@@ -67,19 +67,20 @@
     color: rgba(0,0,0,0.54);
     .picker-calendar-week-day {
         @include flex-shrink(1);
-        width: 100% / 7;
-        width: "-webkit-calc(100% / 7)";
-        width: "-moz-calc(100% / 7)";
-        width: "calc(100% / 7)";
+        $w: 100% / 7;
+        width: $w;
+        width: -webkit-calc(100% / 7);
+        width: -moz-calc(100% / 7);
+        width: calc(100% / 7);
         text-align: center;
         @include flexbox();
         @include justify-content(center);
         @include align-items(center);
     }
     + .picker-calendar-months {
-        height: "-webkit-calc(100% - 100% / 7)";
-        height: "-moz-calc(100% - 100% / 7)";
-        height: "calc(100% - 100% / 7)";
+        height: -webkit-calc(100% - 100% / 7);
+        height: -moz-calc(100% - 100% / 7);
+        height: calc(100% - 100% / 7);
     }
 }
 .picker-calendar-months {
@@ -109,9 +110,9 @@
 }
 .picker-calendar-row {
     height: 100% / 6;
-    height: "-webkit-calc(100% / 6)";
-    height: "-moz-calc(100% / 6)";
-    height: "calc(100% / 6)";
+    height: -webkit-calc(100% / 6);
+    height: -moz-calc(100% / 6);
+    height: calc(100% / 6);
     @include flexbox();
     @include flex-shrink(1);
     width: 100%;
@@ -124,9 +125,9 @@
     @include align-items(center);
     box-sizing: border-box;
     width: 100% / 7;
-    width: "-webkit-calc(100% / 7)";
-    width: "-moz-calc(100% / 7)";
-    width: "calc(100% / 7)";
+    width: -webkit-calc(100% / 7);
+    width: -moz-calc(100% / 7);
+    width: calc(100% / 7);
     text-align: center;
     font-size: 12px;
     cursor: pointer;
