@@ -134,8 +134,8 @@ $listBlockBorderColor: rgba(0,0,0,0.12);
             background-size: 10px 20px;
             background-repeat: no-repeat;
             background-position: 95% center;
-            background-position: -webkit-calc("100% - 16px") center;
-            background-position: calc("100% - 16px") center;
+            background-position: -webkit-calc(100% - 16px) center;
+            background-position: calc(100% - 16px) center;
         }
         html:not(.watch-active-state) &:active, &.active-state {
             background-color: rgba(0,0,0,0.1);
