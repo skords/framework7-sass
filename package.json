@@ -1,0 +1,10 @@
+{
+  "name": "framework7-sass",
+  "version": "1.4.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skords/framework7-sass.git"
+  },
+  "description": " This is a simple and basic port of framework7 LESS to SASS"
+}
